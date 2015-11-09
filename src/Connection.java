@@ -1,12 +1,10 @@
 import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.Scanner;
 
 public class Connection {
     private ServerSocket ss;
     private Socket socket;
-    private Thread serverThread;//оборобка сервер-сокету
     private final static int PORT = 28411;
     private final static String CODING = "28411";
     DataInputStream in;
@@ -37,8 +35,6 @@ public class Connection {
     public boolean isOpen(){
         return socket!=null;
     }
-
-
 
     public void sendNickHello( String nick) throws IOException { //
         socket.getOutputStream().write(("ChatApp 2015 user "+ nick + "\n").getBytes(CODING));
@@ -73,13 +69,4 @@ public class Connection {
     }
    //add Command receive
     //main
-
-
-
-
-
-
-
-
-
 }
