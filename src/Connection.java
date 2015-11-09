@@ -17,9 +17,7 @@ public class Connection {
        // in = new DataInputStream(s.getInputStream());
       //  out = new DataOutputStream(s.getOutputStream());
     }
-
-    Scanner scanner = new Scanner(System.in);
-
+    
     public ServerSocket getSs() {
         return ss;
     }
@@ -73,8 +71,7 @@ public class Connection {
         socket.shutdownOutput();
         socket.close();
     }
-
-   // Command receive
+   //add Command receive
     //main
 
 
