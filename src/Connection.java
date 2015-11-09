@@ -20,7 +20,6 @@ public class Connection {
 
     Scanner scanner = new Scanner(System.in);
 
-
     public ServerSocket getSs() {
         return ss;
     }
@@ -35,6 +34,10 @@ public class Connection {
 
     public void setSocket(Socket socket) {
         this.socket = socket;
+    }
+
+    public boolean isOpen(){
+        return socket!=null;
     }
 
 
@@ -56,11 +59,19 @@ public class Connection {
         socket.getOutputStream().write(("Rejected\n").getBytes(CODING));
     }
 
-    public void sendMessage(String mes){
+    public void sendMessage(String mes) throws IOException {
+        socket.getOutputStream().write(("Message\n").getBytes(CODING));
+        socket.getOutputStream().write(mes.getBytes());
+    }
 
+    public void disconnect() throws IOException {
+        socket.getOutputStream().write(("Disconnect\n").getBytes(CODING));
+    }
 
-
-
+    public void close() throws IOException {
+        socket.shutdownInput();
+        socket.shutdownOutput();
+        socket.close();
     }
 
 
