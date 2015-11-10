@@ -34,6 +34,7 @@ import java.net.SocketAddress;
                 ServerSocket serversocket = new ServerSocket(localPort);
                 Connection connection = new Connection(serversocket.accept(), localNick);
                 return connection;
+                //необходимо переделать консруктор класа Connection
             }
 
         }
